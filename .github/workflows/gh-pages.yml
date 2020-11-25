@@ -24,8 +24,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: build
-        run: npm run build
+      - name: install
+        run: npm ci
+
+      - name: test
+        run: npm test
 
       - name: generate
         run: npm run generate
