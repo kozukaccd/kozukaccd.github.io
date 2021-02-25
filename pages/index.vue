@@ -1,23 +1,7 @@
 <template>
   <div>
-    <v-app-bar color="rgba(255, 255, 255, 0)" :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>Title</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-app-bar>
     <v-parallax src="/image/top.png" height="700">
-      <v-row align="end" justify="center" style="margin-bottom: 30px">
+      <v-row align="center" justify="center" style="padding-top: 170px">
         <v-col cols="12">
           <div style="padding-left: 50px">
             <h1 class="display-3 font-weight-bold">Toma Kozuka's portfolio</h1>
@@ -30,7 +14,7 @@
       <v-container>
         <v-row justify="center" align="center">
           <v-col cols="8" sm="6" md="4">
-            <v-img src="/image/mainVisual.png"></v-img>
+            <v-img src="/image/mainVisual.png" />
           </v-col>
           <v-col cols="8" sm="6" md="4">
             <v-card>
@@ -46,7 +30,7 @@
       <v-container>
         <v-row justify="center" align="center">
           <v-col cols="8" sm="6" md="4">
-            <v-img src="/image/mainVisual.png"></v-img>
+            <v-img src="/image/mainVisual.png" />
           </v-col>
           <v-col cols="8" sm="6" md="4">
             <v-card>
@@ -68,9 +52,9 @@
 // import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
-  components: {
-    // Logo,
-    // VuetifyLogo,
+  components: {},
+  data() {
+    return {}
   },
 }
 </script>
