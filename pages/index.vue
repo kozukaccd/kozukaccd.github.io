@@ -1,21 +1,5 @@
 <template>
   <div>
-    <v-app-bar color="rgba(255, 255, 255, 0)" :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>Title</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-app-bar>
     <v-parallax src="/image/top.png" height="700">
       <v-row align="end" justify="center" style="margin-bottom: 30px">
         <v-col cols="12">
@@ -28,27 +12,26 @@
     </v-parallax>
     <v-main>
       <v-container>
-        <v-row justify="center" align="center">
-          <v-col cols="8" sm="6" md="4">
-            <v-img src="/image/mainVisual.png"></v-img>
-          </v-col>
-          <v-col cols="8" sm="6" md="4">
-            <v-card>
-              <v-card-title>Toma Kozuka</v-card-title>
-              <v-card-subtitle>1993/06/14 男</v-card-subtitle>
-              <v-card-text>
-                こんにちは！Kozukaと申します。プログラミングはもちろん、イラスト・デザイン・動画作成・作曲演奏などなど、興味を持ったものはとりあえず一通り習得してみるタイプの「超」雑食エンジニアです。
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
+        <v-card>
+          <v-row justify="center" align="center">
+            <v-col cols="8" sm="6" md="4">
+              <v-img src="/image/mainVisual.png"></v-img>
+            </v-col>
+            <v-col cols="8" sm="6" md="4">
+              <v-card>
+                <v-card-title>Toma Kozuka</v-card-title>
+                <v-card-subtitle>1993/06/14 男</v-card-subtitle>
+                <v-card-text>
+                  こんにちは！Kozukaと申します。プログラミングはもちろん、イラスト・デザイン・動画作成・作曲演奏などなど、興味を持ったものはとりあえず一通り習得してみるタイプの「超」雑食エンジニアです。
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-card>
       </v-container>
       <v-container>
         <v-row justify="center" align="center">
           <v-col cols="8" sm="6" md="4">
-            <v-img src="/image/mainVisual.png"></v-img>
-          </v-col>
-          <v-col cols="8" sm="6" md="4">
             <v-card>
               <v-card-title>Toma Kozuka</v-card-title>
               <v-card-subtitle>1993/06/14 男</v-card-subtitle>
@@ -56,6 +39,9 @@
                 こんにちは！Kozukaと申します。プログラミングはもちろん、イラスト・デザイン・動画作成・作曲演奏などなど、興味を持ったものはとりあえず一通り習得してみるタイプの「超」雑食エンジニアです。
               </v-card-text>
             </v-card>
+          </v-col>
+          <v-col cols="8" sm="6" md="4">
+            <v-img src="/image/mainVisual.png"></v-img>
           </v-col>
         </v-row>
       </v-container>
@@ -65,12 +51,34 @@
 
 <script>
 // import Logo from '~/components/Logo.vue'
-// import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import { Bar } from 'vue-chartjs'
 
 export default {
   components: {
     // Logo,
     // VuetifyLogo,
+  },
+  extends: Bar,
+  data() {
+    return {
+      chartdata: {
+        labels: ['January', 'February'],
+        datasets: [
+          {
+            label: ['Data One'],
+            backgroundColor: '#f87979',
+            data: [40, 30],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    }
+  },
+  mounted() {
+    this.renderChart(chartdata, options)
   },
 }
 </script>
