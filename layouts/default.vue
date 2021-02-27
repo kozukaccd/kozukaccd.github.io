@@ -9,12 +9,13 @@
 </template>
 
 <script>
+
 import CommonHeader from '~/components/CommonHeader.vue'
 export default {
   components: {
     CommonHeader,
   },
-  data() {
+ data() {
     return {
       clipped: false,
       drawer: false,

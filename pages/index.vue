@@ -60,7 +60,7 @@
 import { mapGetters } from 'vuex'
 import LoadingAnimation from '~/components/LoadingAnimation.vue'
 // import Logo from '~/components/Logo.vue'
-// import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import { Bar } from 'vue-chartjs'
 
 export default {
   components: {
@@ -70,6 +70,28 @@ export default {
     ...mapGetters({
       isLoading: 'opening/isLoading',
     }),
+  },
+  extends: Bar,
+  data() {
+    return {
+      chartdata: {
+        labels: ['January', 'February'],
+        datasets: [
+          {
+            label: ['Data One'],
+            backgroundColor: '#f87979',
+            data: [40, 30],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    }
+  },
+  mounted() {
+    this.renderChart(chartdata, options)
   },
 }
 </script>
