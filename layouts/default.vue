@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <CommonHeader />
     <nuxt />
     <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
@@ -8,7 +9,11 @@
 </template>
 
 <script>
+import CommonHeader from '~/components/CommonHeader.vue'
 export default {
+  components: {
+    CommonHeader,
+  },
   data() {
     return {
       clipped: false,
