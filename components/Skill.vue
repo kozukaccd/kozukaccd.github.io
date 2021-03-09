@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import 'devicon'
 import Chart from '~/components/Chart.vue'
 export default {
   components: {

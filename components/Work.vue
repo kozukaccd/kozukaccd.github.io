@@ -13,14 +13,17 @@
       </v-img>
       <v-card-actions>
         <v-btn color="orange" text @click="reveal = true"> Details </v-btn>
-        <a
+
+        <v-btn
           v-if="link !== ''"
           :href="link"
           target="_blank"
           rel="noopener noreferrer"
+          text
+          color="teal"
         >
-          <v-btn v-if="link !== ''" text color="teal"> Link </v-btn>
-        </a>
+          Link
+        </v-btn>
       </v-card-actions>
 
       <v-expand-transition>
