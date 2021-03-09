@@ -12,19 +12,22 @@
         v-text="name"
       />
       <v-divider></v-divider>
-
-      <div class="chart-wrapper">
-        <Chart :datasets="datasets" />
-      </div>
+      <ScrollShow>
+        <div class="chart-wrapper">
+          <Chart :datasets="datasets" />
+        </div>
+      </ScrollShow>
     </v-card>
   </v-col>
 </template>
 
 <script>
 import Chart from '~/components/Chart.vue'
+import ScrollShow from '~/components/ScrollShow.vue'
 export default {
   components: {
     Chart,
+    ScrollShow,
   },
   props: {
     icon: { default: '', type: String },

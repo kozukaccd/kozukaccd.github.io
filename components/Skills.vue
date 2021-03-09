@@ -14,6 +14,7 @@
           :datasets="skillData.datasets"
           :name="skillData.name"
           :icon="skillData.icon"
+          :num="skillData.key"
         />
       </v-row>
     </v-container>

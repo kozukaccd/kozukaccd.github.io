@@ -20,6 +20,10 @@ export default {
         tooltips: {
           enabled: false,
         },
+        animation: {
+          animationEasing: 'easeOutBounce',
+          duration: 2000,
+        },
       },
       borderColor: 'transparent',
     }
