@@ -9,7 +9,7 @@
 
         <v-divider></v-divider>
       </v-responsive>
-      <v-responsive class="mx-auto mb-8" width="400">
+      <v-responsive class="mx-auto mb-3" width="400">
         <v-row justify="center">
           <v-col v-for="socialLink in socialLinks" :key="socialLink.key">
             <a
@@ -24,10 +24,7 @@
           </v-col>
         </v-row>
       </v-responsive>
-      <v-responsive
-        class="mx-auto title font-weight-light mb-8"
-        max-width="720"
-      >
+      <v-responsive class="mx-auto title font-weight-light" max-width="720">
         こんにちは！Kozukaと申します。フロントエンジニアとして都内企業でお仕事しています。
         プログラミングはもちろん、イラスト・デザイン・動画作成・作曲演奏などなど、
         興味を持ったものはとりあえず一通り習得してみるタイプの「超」雑食系エンジニアです。
