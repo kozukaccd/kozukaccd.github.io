@@ -69,7 +69,7 @@ export default {
 .v-card--reveal {
   bottom: 0;
   opacity: 1 !important;
-  position: absolute;
+  position: absolute !important;
   width: 100%;
 }
 </style>
