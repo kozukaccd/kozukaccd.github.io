@@ -1,6 +1,8 @@
 <template>
   <transition appear name="loading">
-    <div v-show="isLoading" id="lottie loading" ref="lottie"></div>
+    <div v-show="isLoading" class="wrapper">
+      <div id="lottie" ref="lottie" class="loading-animation"></div>
+    </div>
   </transition>
 </template>
 
@@ -13,20 +15,11 @@ export default {
   computed: {
     ...mapGetters({
       isLoading: 'opening/isLoading',
+      isPlaying: 'opening/isPlaying',
+      isContentShown: 'opening/isContentShown',
     }),
   },
-  watch: {
-    isLoading: (next, prev) => {
-      if (!next && prev) {
-        // ここに好きなアニメーションとかの処理
-        console.log('初回アニメーションが発火してまーす')
-      } else {
-        console.log('aaa', next, prev)
-      }
-    },
-    deep: true,
-    immediate: true,
-  },
+  watch: {},
   mounted() {
     window.addEventListener('load', async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -39,7 +32,6 @@ export default {
       })
       await lottie.play()
       await new Promise((resolve) => setTimeout(resolve, 4000))
-      await console.log('loaded!!!!')
       await this.endLoding()
     })
   },
@@ -50,15 +42,22 @@ export default {
   },
 }
 </script>
-<style>
-#loading {
+<style scoped>
+.wrapper {
   width: 100vw;
   height: 100vh;
-  transition: all 1s;
-  background-color: #0bd;
   position: fixed;
-  top: 0;
-  left: 0;
+  z-index: 9998;
+  background-color: white;
+}
+.loading-animation {
+  width: 50vw;
+  height: 50vh;
+  transition: all 1s;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 9999;
 }
 .loading-enter,

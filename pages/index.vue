@@ -3,54 +3,28 @@
     <LoadingAnimation />
     <transition appear name="content">
       <div v-show="!isLoading">
-        <v-parallax src="/image/top.png" height="900">
-          <v-row align="end" justify="center" style="margin-bottom: 30px">
+        <HeroHeader />
+        <v-container>
+          <v-row align="center" justify="center">
             <v-col cols="12">
-              <div style="padding-left: 50px">
-                <h1 class="display-3 font-weight-bold">
-                  Toma Kozuka's portfolio
-                </h1>
-                <h4 class="subheading">
-                  なんでも食べる！「超」雑食系エンジニア
-                </h4>
-              </div>
+              <div class="py-12"></div>
+              <v-divider inset />
+              <AboutMe />
             </v-col>
+            <v-col cols="12">
+              <v-divider inset />
+              <div class="py-12"></div>
+              <Skills />
+            </v-col>
+            <v-col cols="12">
+              <v-divider inset />
+              <div class="py-12"></div>
+              <Works />
+            </v-col>
+            <v-divider inset />
+            <div class="py-12"></div>
           </v-row>
-        </v-parallax>
-        <v-main>
-          <v-container>
-            <v-row justify="center" align="center">
-              <v-col cols="8" sm="6" md="4">
-                <v-img src="/image/mainVisual.png"></v-img>
-              </v-col>
-              <v-col cols="8" sm="6" md="4">
-                <v-card>
-                  <v-card-title>Toma Kozuka</v-card-title>
-                  <v-card-subtitle>1993/06/14 男</v-card-subtitle>
-                  <v-card-text>
-                    こんにちは！Kozukaと申します。プログラミングはもちろん、イラスト・デザイン・動画作成・作曲演奏などなど、興味を持ったものはとりあえず一通り習得してみるタイプの「超」雑食エンジニアです。
-                  </v-card-text>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container>
-          <v-container>
-            <v-row justify="center" align="center">
-              <v-col cols="8" sm="6" md="4">
-                <v-img src="/image/mainVisual.png"></v-img>
-              </v-col>
-              <v-col cols="8" sm="6" md="4">
-                <v-card>
-                  <v-card-title>Toma Kozuka</v-card-title>
-                  <v-card-subtitle>1993/06/14 男</v-card-subtitle>
-                  <v-card-text>
-                    こんにちは！Kozukaと申します。プログラミングはもちろん、イラスト・デザイン・動画作成・作曲演奏などなど、興味を持ったものはとりあえず一通り習得してみるタイプの「超」雑食エンジニアです。
-                  </v-card-text>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-main>
+        </v-container>
       </div>
     </transition>
   </div>
@@ -59,12 +33,18 @@
 <script>
 import { mapGetters } from 'vuex'
 import LoadingAnimation from '~/components/LoadingAnimation.vue'
-// import Logo from '~/components/Logo.vue'
-// import { Bar } from 'vue-chartjs'
+import HeroHeader from '~/components/HeroHeader.vue'
+import AboutMe from '~/components/AboutMe.vue'
+import Skills from '~/components/Skills.vue'
+import Works from '~/components/Works.vue'
 
 export default {
   components: {
     LoadingAnimation,
+    HeroHeader,
+    AboutMe,
+    Skills,
+    Works,
   },
   computed: {
     ...mapGetters({
@@ -103,6 +83,6 @@ export default {
 }
 .content-enter-active,
 .content-leave-active {
-  transition: opacity 7s;
+  transition: opacity 3s;
 }
 </style>

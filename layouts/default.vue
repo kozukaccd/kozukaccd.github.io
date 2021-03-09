@@ -2,18 +2,20 @@
   <v-app>
     <CommonHeader />
     <nuxt />
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+    <v-footer v-show="!isLoading" :absolute="!fixed" app>
+      <span>&copy; {{ new Date().getFullYear() }} Toma Kozuka</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import CommonHeader from '~/components/CommonHeader.vue'
 export default {
   components: {
     CommonHeader,
   },
+
   data() {
     return {
       clipped: false,
@@ -37,5 +39,15 @@ export default {
       title: 'Vuetify.js',
     }
   },
+  computed: {
+    ...mapGetters({
+      isLoading: 'opening/isLoading',
+    }),
+  },
 }
 </script>
+<style scoped>
+.v-application {
+  background-color: #abccb2;
+}
+</style>

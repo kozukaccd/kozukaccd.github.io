@@ -1,43 +1,32 @@
 <template>
-  <div v-if="!isLoading">
-    <v-app-bar
-      :color="isClear ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)'"
-      fixed
-      app
-      flat
-      style="
-        hover: {
-          cursor: pointer;
-        }
-      "
-    >
-      <v-app-bar-nav-icon />
-      <v-toolbar-title>Title</v-toolbar-title>
-      <v-spacer />
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-app-bar>
+  <div>
+    <transition name="loading-header">
+      <v-app-bar
+        :color="isClear ? 'rgba(255, 255, 255, 0)' : 'rgba(230, 240, 232, 1)'"
+        fixed
+        app
+        flat
+        style="
+          hover: {
+            cursor: pointer;
+          }
+        "
+      >
+        <v-icon color="black" style="margin-right: 16px">icon-logoOnly</v-icon>
+        <v-toolbar-title>Toma Kozuka's Portfolio</v-toolbar-title>
+        <v-spacer />
+      </v-app-bar>
+    </transition>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import '@/assets/icomoon/style.css'
+
 export default {
   components: {},
-  computed: {
-    ...mapGetters({
-      isLoading: 'opening/isLoading',
-    }),
-  },
+
   data() {
     return {
       clipped: false,
@@ -46,24 +35,12 @@ export default {
       scrollY: 0,
       isShow: true,
       isClear: true,
-      isMouseOvered: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
     }
+  },
+  computed: {
+    ...mapGetters({
+      isLoading: 'opening/isLoading',
+    }),
   },
   watch: {
     // 上にスクロールした時に表示
@@ -89,9 +66,12 @@ export default {
 </script>
 
 <style>
-/* .VueToNuxtLogo {
-  overflow: hidden;
-  height: 180px;
-  width: 245px;
-} */
+.loading-header-enter,
+.loading-header-leave-to {
+  opacity: 0;
+}
+.loading-header-enter-active,
+.loading-header-leave-active {
+  transition: opacity 1s;
+}
 </style>
